@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saeed Liaqat’s portfolio
 
-## Getting Started
+This portfolio uses the existing Next.js 16.4.6 App Router, TypeScript and npm setup. It serves a homepage, project case studies, About, and CV & Certificates.
 
-First, run the development server:
+## Run and check
 
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). For a production check, run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run build
+npx tsc --noEmit
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build generates the route types used by TypeScript. The project requires no environment variables or remote content services. Geist and the images are served from the project.
 
-## Learn More
+## Maintain content
 
-To learn more about Next.js, take a look at the following resources:
+- Update the introduction, contact links, skills, timeline and personal details in `content/profile.ts`.
+- Add a record to `content/projects.ts` with a unique slug, a publishable image in `public/images/`, its dimensions and alt text, and source-backed case study details. The homepage, case-study route and sitemap use the same data.
+- Replace `public/documents/Muhammad-Saeed-Liaqat-CV.pdf` with a public-facing PDF. If the filename changes, update `content/documents.ts` too. Keep the CV and site facts in sync.
+- Edit selected certificates and awards in `content/documents.ts`. Use a checked issuer verification link or a PDF approved for publication.
+- Set the public canonical URL in `content/site.ts` if the production address changes. Replace the social image in `public/images/social-card.jpg` if the name or role changes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [content checklist](docs/content-checklist.md) for source decisions and the document inventory. The repository links to the existing Vercel project. Confirm the production domain opens in a signed-out browser and review the branch before merging changes to the production branch.
