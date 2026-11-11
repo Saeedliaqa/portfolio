@@ -26,6 +26,7 @@ export function Contact() {
       <div className="contact-panel">
         <div>
           <h2 id="contact-title">Get in touch</h2>
+          <p className="contact-location"><Icon name="pin" /> {profile.location}</p>
           <p>I’m looking for Werkstudent and part-time IT roles in Germany. If you’d like to discuss a role or ask about my work, you can reach me by email.</p>
         </div>
         <div className="contact-actions">

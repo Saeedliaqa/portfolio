@@ -10,6 +10,8 @@ const paths = {
   layout: <><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></>,
   database: <><ellipse cx="12" cy="5.5" rx="8" ry="3.5"/><path d="M4 5.5v6c0 1.9 3.6 3.5 8 3.5s8-1.6 8-3.5v-6M4 11.5v6c0 1.9 3.6 3.5 8 3.5s8-1.6 8-3.5v-6"/></>,
   code: <path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/>,
+  trophy: <><path d="M8 21h8m-4-4v4M7 4h10v7a5 5 0 0 1-10 0V4Zm0 2H3v2a4 4 0 0 0 4 4m10-6h4v2a4 4 0 0 1-4 4"/></>,
+  medal: <><circle cx="12" cy="15" r="5"/><path d="m8 12-4-8h5l3 6 3-6h5l-4 8m-4 1.5v3"/></>,
   file: <><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h4m-9 5h6m-6 4h6"/></>,
   briefcase: <><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 12h18m-11 0v2h4v-2"/></>,
   education: <><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c4 3 8 3 12 0v-5m4-2v6"/></>,

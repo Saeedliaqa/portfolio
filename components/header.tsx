@@ -4,29 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import { Icon } from "./icon";
+import { DownloadCv } from "./links";
 
 const navigation = [
-  { label: "Projects", href: "/#projects", section: "/projects/" },
-  { label: "About", href: "/about", section: "/about" },
-  { label: "CV & Certificates", href: "/cv-certificates", section: "/cv-certificates" },
-  { label: "Contact", href: "/#contact", section: null },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Education", href: "/#education" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 function Navigation({ pathname }: { pathname: string }) {
   return (
     <ul className="nav-list">
-      {navigation.map(({ label, href, section }) => (
+      {navigation.map(({ label, href }) => (
         <li key={href}>
           <Link
-            className={section ? "nav-link" : "nav-link nav-contact"}
+            className="nav-link"
             href={href}
-            aria-current={section && (pathname === section || (section.endsWith("/") && pathname.startsWith(section))) ? (href === pathname ? "page" : "location") : undefined}
+            aria-current={href === "/#projects" && pathname.startsWith("/projects/") ? "location" : undefined}
           >
             {label}
-            {!section && <Icon name="external" />}
           </Link>
         </li>
       ))}
+      <li className="nav-cv"><DownloadCv primary /></li>
     </ul>
   );
 }

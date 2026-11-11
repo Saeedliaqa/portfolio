@@ -1,6 +1,6 @@
 # Saeed Liaqat’s portfolio
 
-This portfolio uses the existing Next.js 16.4.6 App Router, TypeScript and npm setup. It serves a homepage, project case studies, About, and CV & Certificates.
+This portfolio uses the existing Next.js 16.4.6 App Router, TypeScript and npm setup. The homepage contains experience, projects, skills and languages, education, awards, certificates, volunteering, interests, and contact. The project case studies remain available as detail pages. The former About and CV & Certificates routes redirect to the homepage.
 
 ## Run and check
 
@@ -22,7 +22,7 @@ The build generates the route types used by TypeScript. The project requires no 
 
 ## Maintain content
 
-- Update the introduction, contact links, skills, timeline and personal details in `content/profile.ts`.
+- Update the introduction, contact links, skills, timelines and hobbies in `content/profile.ts`.
 - Add a record to `content/projects.ts` with a unique slug, a publishable image in `public/images/`, its dimensions and alt text, and source-backed case study details. The homepage, case-study route and sitemap use the same data.
 - Replace `public/documents/Muhammad-Saeed-Liaqat-CV.pdf` with a public-facing PDF. If the filename changes, update `content/documents.ts` too. Keep the CV and site facts in sync.
 - Edit selected certificates and awards in `content/documents.ts`. Use a checked issuer verification link or a PDF approved for publication.

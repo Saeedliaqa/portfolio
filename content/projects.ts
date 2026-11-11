@@ -28,7 +28,7 @@ export const projects: readonly Project[] = [
     slug: "globaq",
     title: "Globaq company website",
     kind: "Client website",
-    period: "Sep 2025 – Oct 2026",
+    period: "15 Aug 2025 – 30 Aug 2026",
     summary: "A public website for a Saudi quality-assurance and ISO consultancy.",
     contribution: "I built and deployed the responsive React site and integrated its contact and WhatsApp enquiry paths.",
     role: "Software Developer",
