@@ -4,6 +4,7 @@ export type TimelineEntry = {
   period: string;
   detail: string;
   highlights?: readonly string[];
+  distinction?: string;
 };
 
 export const profile = {
@@ -14,8 +15,11 @@ export const profile = {
   email: "saeedliaqat811@gmail.com",
   github: "https://github.com/Saeedliaqa",
   linkedin: "https://www.linkedin.com/in/muhammad-saeed-liaqat-/",
-  introduction:
-    "I build responsive web interfaces and the APIs behind them. I’m pursuing a master’s in Transformation Studies at BTU Cottbus–Senftenberg and looking for Werkstudent and part-time IT roles in Germany.",
+  introduction: [
+    "I’m a computer scientist and web developer with a passion for problem-solving, LeetCode and competitive programming. I enjoy breaking down challenging problems and finding efficient solutions—an interest I’ve put into practice by winning my university’s speed programming competition.",
+    "I have hands-on experience building and deploying responsive websites and developing backend systems with Node.js and PostgreSQL. Currently, I’m pursuing a master’s in Transformation Studies at BTU Cottbus–Senftenberg, exploring how technology, people and organisations work together.",
+    "I’m looking for Werkstudent and part-time IT opportunities in Germany where I can contribute my skills, take on meaningful challenges and keep learning.",
+  ],
   motivation: {
     origin: "In my computer science degree, I learned how to build software through courses like software engineering and AI. Human–computer interaction and economics made me ask a different question: what does it take for a tool to fit the way people actually work?",
     btu: "I chose the Sociotechnical Transformation track at BTU because I want to understand how organisations introduce new technology and help the people affected by it. Studying in Lusatia gives me a chance to see that kind of change up close, as the region moves beyond coal and develops new industries and jobs.",
@@ -38,6 +42,7 @@ export const education = [
     title: "BS in Computer Science",
     organization: "Mirpur University of Science and Technology",
     period: "Nov 2021 – Aug 2025",
+    distinction: "Class rank: 12th of 56 computer science graduates",
     detail: "Focused on software development and artificial intelligence. For my final-year project, I worked with a teammate on Learnify, an AI quiz application recognised by the department as Best Project.",
   },
 ] satisfies TimelineEntry[];
@@ -80,31 +85,10 @@ export const volunteering = [
   },
 ] satisfies TimelineEntry[];
 
-export const skills = [
-  {
-    title: "Frontend",
-    icon: "layout",
-    tools: "React, Next.js, Tailwind CSS, HTML and CSS",
-    evidence: { label: "Globaq", href: "/projects/globaq" },
-  },
-  {
-    title: "Backend & data",
-    icon: "database",
-    tools: "Node.js, PostgreSQL, REST APIs, Python and FastAPI",
-    evidence: { label: "Learnify", href: "/projects/learnify" },
-  },
-  {
-    title: "Tools & deployment",
-    icon: "code",
-    tools: "Git, GitHub and Vercel",
-    evidence: { label: "Portfolio source", href: "https://github.com/Saeedliaqa/portfolio" },
-  },
-] as const;
-
 export const hobbies = [
-  { name: "Football", image: "football", alt: "Outdoor football pitch and goal" },
-  { name: "Swimming", image: "swimming", alt: "Indoor swimming pool" },
-  { name: "Cricket", image: "cricket", alt: "Floodlit cricket pitch at night" },
-  { name: "Table tennis", image: "table-tennis", alt: "Paddle on a blue table tennis table" },
-  { name: "Reading", image: "reading", alt: "Books beside a laptop on a desk" },
+  { name: "Football", image: "football", note: "Football has been my favourite sport since childhood. Beyond the excitement of playing, it has taught me the value of teamwork, communication and working towards a shared goal.", alt: "Outdoor football pitch and goal" },
+  { name: "Swimming", image: "swimming", note: "I especially enjoy swimming during Pakistan’s hot summers. It’s a refreshing way to cool down, unwind and stay active.", alt: "Indoor swimming pool" },
+  { name: "Cricket", image: "cricket", note: "As a Pakistani, cricket holds a special place in my heart. I enjoy its combination of strategy, patience and teamwork, along with the shared excitement that brings people together.", alt: "Floodlit cricket pitch at night" },
+  { name: "Table tennis", image: "table-tennis", note: "Table tennis is a great indoor option that combines speed, precision and quick thinking. I enjoy the challenge of staying focused and adapting with every rally.", alt: "Paddle on a blue table tennis table" },
+  { name: "Reading", image: "reading", note: "Reading feeds my curiosity and broadens my perspective. Books such as *Justuju Ka Safar*, *How to Stop Worrying and Start Living* and *Eat That Frog!* have shaped my outlook and approach to personal growth.", alt: "Books beside a laptop on a desk" },
 ] as const;

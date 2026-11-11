@@ -35,9 +35,16 @@ export function ProjectCard({ project }: { project: Project }) {
         <p>{project.summary}</p>
         <p>{project.contribution}</p>
         <ProjectStack items={project.stack} />
-        <Link href={`/projects/${project.slug}`} className="text-link card-link" aria-label={`Read case study: ${project.title}`}>
-          Read case study <Icon name="arrow" />
-        </Link>
+        <div className="project-card-links">
+          <Link href={`/projects/${project.slug}`} className="text-link" aria-label={`Read case study: ${project.title}`}>
+            Read case study <Icon name="arrow" />
+          </Link>
+          {project.links.map(({ href, label }) => (
+            <a className="text-link" key={href} href={href} aria-label={`${label}: ${project.title}`}>
+              {label} <Icon name="external" />
+            </a>
+          ))}
+        </div>
       </div>
     </article>
   );

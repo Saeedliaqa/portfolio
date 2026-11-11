@@ -51,14 +51,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.work.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </section>
-          <section aria-labelledby="decisions-title">
-            <h2 id="decisions-title">Technical decisions</h2>
-            {project.decisions.map((decision) => (
-              <div className="case-decision" key={decision.title}>
-                <h3>{decision.title}</h3>
-                <p>{decision.text}</p>
-              </div>
-            ))}
+          <section aria-labelledby="challenge-title">
+            <h2 id="challenge-title">Technical challenge</h2>
+            <p>{project.challenge}</p>
+            <h3 className="case-solution">My solution</h3>
+            <p>{project.solution}</p>
           </section>
           <section aria-labelledby="outcome-title">
             <h2 id="outcome-title">Outcome</h2>

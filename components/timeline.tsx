@@ -15,6 +15,7 @@ export function Timeline({
           <Heading>{entry.title}</Heading>
           <p className="timeline-organization">{entry.organization}</p>
           <p>{entry.detail}</p>
+          {entry.distinction && <p className="timeline-distinction">{entry.distinction}</p>}
           {entry.highlights && (
             <ul className="timeline-highlights">
               {entry.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}

@@ -46,7 +46,7 @@ type Award = Credential & {
   id: string;
   kind: string;
   description: string;
-  icon: "trophy" | "medal" | "code" | "education";
+  icon: "trophy" | "medal" | "code";
 };
 
 export const awards: readonly Award[] = [
@@ -77,14 +77,5 @@ export const awards: readonly Award[] = [
     kind: "Code Champion",
     description: "I earned the Code Champion title in SOCIT’s speed programming competition at MUST. The event tested how quickly participants could solve programming problems.",
     icon: "code",
-  },
-  {
-    id: "class-rank",
-    title: "12th of 56 computer science graduates",
-    issuer: "Mirpur University of Science and Technology",
-    date: "2021–2025 cohort",
-    kind: "Academic standing",
-    description: "The university ranked me 12th in my graduating class based on my cumulative performance across the four-year computer science degree.",
-    icon: "education",
   },
 ];

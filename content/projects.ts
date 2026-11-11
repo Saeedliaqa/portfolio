@@ -18,7 +18,8 @@ export type Project = {
   media: ProjectMedia;
   overview: string;
   work: readonly string[];
-  decisions: readonly { title: string; text: string }[];
+  challenge: string;
+  solution: string;
   outcome: string;
   links: readonly { href: string; label: string }[];
 };
@@ -47,19 +48,13 @@ export const projects: readonly Project[] = [
       "Integrated enquiry paths through the contact form and WhatsApp.",
       "Deployed the site and maintained technical SEO and frontend improvements after launch.",
     ],
-    decisions: [
-      {
-        title: "Prerendering public content",
-        text: "The site uses a React single-page application with prerendering. Public service pages can return HTML for indexing while React handles navigation in the browser.",
-      },
-      {
-        title: "Making enquiries easy to find",
-        text: "The site offers a contact form alongside a direct WhatsApp route. A visitor can read about a service and choose how to get in touch.",
-      },
-    ],
+    challenge:
+      "Each service page needed to expose its own content to search engines, even though the site used a single React application for navigation.",
+    solution:
+      "I prerendered the public service pages so they could return HTML for indexing while React handled navigation in the browser.",
     outcome:
-      "The public site is live. Visitors can browse Globaq’s services and follow its contact paths from the service pages.",
-    links: [{ href: "https://www.globaqksa.com/", label: "Visit the live website" }],
+      "The live site exposes service-specific pages from its homepage. Follow the ISO Consultancy link in the services list to see an example.",
+    links: [{ href: "https://www.globaqksa.com/", label: "Live website" }],
   },
   {
     slug: "learnify",
@@ -84,19 +79,13 @@ export const projects: readonly Project[] = [
       "Implemented account registration and authentication, including password hashing.",
       "Worked on the backend of a shared project that also included a separate frontend and AI-generated quiz flow.",
     ],
-    decisions: [
-      {
-        title: "Keeping account data in the backend",
-        text: "Registration and sign-in are handled in Node.js, with account data stored in PostgreSQL. Password hashing keeps plaintext passwords out of the database.",
-      },
-      {
-        title: "Separating generated questions from account state",
-        text: "Gemini generates the questions from the learner’s choices. The application handles accounts and scores separately, so a new quiz can vary while a learner’s account persists.",
-      },
-    ],
+    challenge:
+      "Learners needed an account that would persist across quiz sessions, with passwords stored securely.",
+    solution:
+      "I implemented registration and sign-in in Node.js, used PostgreSQL to store account data, and hashed passwords before storing them.",
     outcome:
-      "The team received Best Project recognition from the Department of Computer Science and Information Technology at MUST. The public repository contains the frontend and backend.",
-    links: [{ href: "https://github.com/Saeedliaqa/learnify", label: "View the source on GitHub" }],
+      "The public repository contains both the backend and frontend. Its README documents how learners sign in, generate a quiz and compare their scores on the leaderboard. Learnify received Best Project recognition as a team.",
+    links: [{ href: "https://github.com/Saeedliaqa/learnify", label: "GitHub source" }],
   },
 ];
 

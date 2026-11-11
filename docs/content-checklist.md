@@ -27,7 +27,7 @@ The latest software developer CV, supplied brief, attachments and supporting doc
 | Managing Stress and Time | Course completion | Supplied Coursera certificate | [Coursera verification](https://coursera.org/verify/PBM5TOPV7UER) | Issuer URL printed on the certificate | Issuer link only |
 | Best Final-Year Project | Team award | CV V5 and MUST award certificate | `/projects/learnify` | Award certificate reviewed | Text only |
 | Computing Quiz Champion and Speed Programming Code Champion | Awards | Supplied competition certificates | Text in the homepage awards section | Event names and dates checked against certificates | Text only |
-| Class rank | Academic standing | Supplied rank certificate | Text in the homepage awards section | 12th of 56 confirmed | Text only. Scan private |
+| Class rank | Academic standing | Supplied rank certificate | Text in the homepage education section | 12th of 56 confirmed | Text only. Scan private |
 | Employment and internship letters | Experience records | Supplied attachments | Text on the homepage and the Globaq case study | Employment letter dates confirmed by Saeed | Letters private |
 | FSC marksheet | Transcript | Supplied attachment | — | — | Private |
 | IELTS Academic report | Test report | Supplied attachment | C1 result stated as text | Report reviewed | PDF private |
