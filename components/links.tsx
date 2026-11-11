@@ -23,7 +23,7 @@ export function SocialLinks() {
 export function Contact() {
   return (
     <section className="shell contact-section" id="contact" aria-labelledby="contact-title">
-      <div className="contact-panel">
+      <div className="contact-panel" data-reveal>
         <div>
           <h2 id="contact-title">Get in touch</h2>
           <p className="contact-location"><Icon name="pin" /> {profile.location}</p>

@@ -6,7 +6,7 @@ import { Icon } from "./icon";
 export function ProjectImage({ project, detail = false }: { project: Project; detail?: boolean }) {
   const { media } = project;
   return (
-    <figure className={detail ? "project-figure" : "project-thumbnail"} data-project={project.slug}>
+    <figure className={detail ? "project-figure" : "project-thumbnail"} data-project={project.slug} data-reveal={detail || undefined}>
       <div className="project-image-frame">
         <Image
           src={media.src}
@@ -27,7 +27,7 @@ export function ProjectStack({ items }: { items: readonly string[] }) {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="project-card">
+    <article className="project-card" data-reveal>
       <ProjectImage project={project} />
       <div className="project-card-body">
         <p className="label">{project.kind}</p>

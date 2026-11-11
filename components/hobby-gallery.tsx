@@ -14,6 +14,7 @@ function HobbyCard({ name, image, alt, note }: (typeof hobbies)[number]) {
     <li
       className="hobby-card"
       data-expanded={expanded}
+      data-reveal
       onPointerEnter={(event) => {
         if (event.pointerType === "mouse") setHovered(true);
       }}
@@ -26,7 +27,7 @@ function HobbyCard({ name, image, alt, note }: (typeof hobbies)[number]) {
             alt={alt}
             width={480}
             height={320}
-            sizes="(max-width: 560px) 90vw, (max-width: 880px) 46vw, 370px"
+            sizes="(max-width: 560px) min(90vw, 416px), (max-width: 880px) 46vw, 320px"
           />
           <strong>{name}</strong>
         </div>

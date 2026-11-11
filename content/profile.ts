@@ -10,15 +10,14 @@ export type TimelineEntry = {
 export const profile = {
   name: "Muhammad Saeed Liaqat",
   shortName: "Saeed Liaqat",
-  role: "Software developer",
   location: "Cottbus, Germany",
   email: "saeedliaqat811@gmail.com",
   github: "https://github.com/Saeedliaqa",
   linkedin: "https://www.linkedin.com/in/muhammad-saeed-liaqat-/",
   introduction: [
-    "I’m a computer scientist and web developer with a passion for problem-solving, LeetCode and competitive programming. I enjoy breaking down challenging problems and finding efficient solutions—an interest I’ve put into practice by winning my university’s speed programming competition.",
-    "I have hands-on experience building and deploying responsive websites and developing backend systems with Node.js and PostgreSQL. Currently, I’m pursuing a master’s in Transformation Studies at BTU Cottbus–Senftenberg, exploring how technology, people and organisations work together.",
-    "I’m looking for Werkstudent and part-time IT opportunities in Germany where I can contribute my skills, take on meaningful challenges and keep learning.",
+    "I am a computer scientist and web developer with a strong foundation in problem-solving, competitive programming, and LeetCode. I enjoy breaking down complex challenges into efficient solutions—a focus that earned me 1st place in my university’s speed programming competition.",
+    "My technical experience spans full-stack web development, responsive application design, and robust backend architecture. Currently, I am pursuing a master’s in Transformation Studies at BTU Cottbus–Senftenberg, exploring how technology, people, and organizations intersect.",
+    "I am seeking **Werkstudent** and **part-time IT opportunities** in Germany to apply my skills, tackle meaningful technical challenges, and continue growing.",
   ],
   motivation: {
     origin: "In my computer science degree, I learned how to build software through courses like software engineering and AI. Human–computer interaction and economics made me ask a different question: what does it take for a tool to fit the way people actually work?",
@@ -26,8 +25,20 @@ export const profile = {
     goals: "Long term, I’d like to work in transformation consulting and help teams plan changes that their developers and users can work through together.",
   },
   languages: [
-    { name: "German", level: "B1 · Intermediate" },
-    { name: "English", level: "C1 · IELTS Academic, 2025" },
+    {
+      name: "German",
+      level: "B1 · Intermediate",
+      progress: "Currently working towards B2.",
+      detail: "Developing my confidence in everyday conversations and expanding my vocabulary for study and work.",
+    },
+    {
+      name: "English",
+      level: "C2 · Proficient/near native",
+      assessment: "self-assessed",
+      ielts: { overall: "8.0/9 overall", year: "2025", subscores: "Speaking: 8.0 · Listening: 9.0" },
+      detail: "My main language for academic study, technical learning and professional communication.",
+    },
+    { name: "Urdu", level: "Native", detail: "My first & mother language and an important part of my cultural identity." },
   ],
 } as const;
 
@@ -91,4 +102,5 @@ export const hobbies = [
   { name: "Cricket", image: "cricket", note: "As a Pakistani, cricket holds a special place in my heart. I enjoy its combination of strategy, patience and teamwork, along with the shared excitement that brings people together.", alt: "Floodlit cricket pitch at night" },
   { name: "Table tennis", image: "table-tennis", note: "Table tennis is a great indoor option that combines speed, precision and quick thinking. I enjoy the challenge of staying focused and adapting with every rally.", alt: "Paddle on a blue table tennis table" },
   { name: "Reading", image: "reading", note: "Reading feeds my curiosity and broadens my perspective. Books such as *Justuju Ka Safar*, *How to Stop Worrying and Start Living* and *Eat That Frog!* have shaped my outlook and approach to personal growth.", alt: "Books beside a laptop on a desk" },
+  { name: "Traveling", image: "traveling", note: "I enjoy exploring new places and seeing how people live in different parts of the world.", alt: "A red train on the Bernina Railway in the Swiss Alps" },
 ] as const;

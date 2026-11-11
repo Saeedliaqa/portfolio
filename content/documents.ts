@@ -2,7 +2,6 @@ type Credential = {
   title: string;
   issuer: string;
   date: string;
-  note?: string;
   link?: { label: string; href: string };
 };
 
@@ -11,34 +10,89 @@ export const cv = {
   filename: "Muhammad-Saeed-Liaqat-CV.pdf",
 };
 
-export const certificates: readonly Credential[] = [
+export type CourseCertificate = Credential & {
+  instructor?: { label: string; name: string };
+  duration: string;
+  note?: string;
+  overview: string;
+  learning: readonly string[];
+  connection?: { title: string; text: string };
+};
+
+export const certificates: readonly CourseCertificate[] = [
   {
     title: "Complete Data Science, Machine Learning, DL, NLP Bootcamp",
     issuer: "Udemy",
-    date: "16 Nov 2025",
-    note: "Course completion · 99 hours listed by Udemy.",
+    instructor: { label: "Instructors", name: "Krish Naik and KRISHAI Technologies" },
+    date: "16 November 2025",
+    duration: "99 hours",
+    overview: "A broad programme covering Python, the mathematical foundations of machine learning, deep learning and natural language processing. The course connects theoretical concepts with model development, evaluation and deployment.",
+    learning: [
+      "Python programming and working with data.",
+      "Mathematical foundations, including probability and linear algebra.",
+      "Machine learning models, evaluation and hyperparameter tuning.",
+      "Neural networks, optimisation and deep learning fundamentals.",
+      "Natural language processing and model deployment concepts.",
+    ],
+    connection: {
+      title: "Connection to my interests",
+      text: "Relevant to my interest in AI applications and understanding the models behind intelligent software.",
+    },
     link: { label: "Verify certificate", href: "https://www.udemy.com/certificate/UC-81614f5a-30eb-4296-9fd5-da2dce207abf/" },
   },
   {
     title: "The Complete Full-Stack Web Development Bootcamp",
     issuer: "Udemy",
-    date: "6 Aug 2025",
-    note: "Course completion · 61.5 hours listed by Udemy.",
+    instructor: { label: "Instructor", name: "Dr. Angela Yu" },
+    date: "6 August 2025",
+    duration: "61.5 hours",
+    overview: "A comprehensive introduction to building web applications, covering responsive interfaces, server-side development, databases and deployment.",
+    learning: [
+      "Responsive layouts using HTML, CSS, Flexbox and Grid.",
+      "JavaScript, DOM manipulation and interactive interfaces.",
+      "React components and hooks.",
+      "Node.js, Express and working with APIs.",
+      "SQL, PostgreSQL, authentication, Git and deployment.",
+    ],
+    connection: {
+      title: "Connection to my work",
+      text: "The technologies overlap with my frontend work on the Globaq website and my Node.js/PostgreSQL backend contribution to Learnify.",
+    },
     link: { label: "Verify certificate", href: "https://www.udemy.com/certificate/UC-607855cc-ba42-4a5c-bff1-b71896fbd262/" },
   },
   {
     title: "Mastering Data Structures & Algorithms using C and C++",
     issuer: "Udemy",
-    date: "23 Apr 2025",
-    note: "Course completion · 58.5 hours listed by Udemy.",
+    instructor: { label: "Instructor", name: "Abdul Bari" },
+    date: "23 April 2025",
+    duration: "58.5 hours",
+    overview: "An implementation-focused course exploring how data structures and algorithms work, how to analyse their efficiency and how to implement them in C and C++.",
+    learning: [
+      "Time and space complexity, including asymptotic analysis.",
+      "Recursion and recursive problem-solving.",
+      "Arrays, linked lists, stacks and queues.",
+      "Trees, graphs and hashing.",
+      "Sorting algorithms and choosing suitable data structures.",
+    ],
+    connection: {
+      title: "Connection to my interests",
+      text: "Closely aligned with my interest in LeetCode and competitive programming, particularly reasoning about efficiency and selecting appropriate approaches.",
+    },
     link: { label: "Verify certificate", href: "https://www.udemy.com/certificate/UC-238538f7-6826-4144-bfd4-5b0bf2cbac82/" },
   },
   {
     title: "Managing Stress and Time",
     issuer: "Arizona State University · Coursera",
-    date: "1 Mar 2025",
-    note: "Non-credit course completion.",
-    link: { label: "Verify certificate", href: "https://coursera.org/verify/PBM5TOPV7UER" },
+    date: "1 March 2025",
+    duration: "Approximately 6 hours",
+    note: "Non-credit course completion",
+    overview: "A practical course on managing time, recognising stress and responding to everyday pressures.",
+    learning: [
+      "Reviewing time use and planning tasks.",
+      "Recognising stressors and managing immediate stress.",
+      "Setting boundaries and building sustainable routines.",
+    ],
+    link: { label: "Verify certificate", href: "https://www.coursera.org/account/accomplishments/verify/PBM5TOPV7UER" },
   },
 ];
 

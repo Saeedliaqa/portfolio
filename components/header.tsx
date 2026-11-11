@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Suspense } from "react";
-import { Icon } from "./icon";
+import { Suspense, useEffect, useState } from "react";
 import { DownloadCv } from "./links";
 
 const navigation = [
@@ -16,7 +15,53 @@ const navigation = [
   { label: "Contact", href: "/#contact" },
 ] as const;
 
-function Navigation({ pathname }: { pathname: string }) {
+function useCenteredSection(pathname: string) {
+  const [centeredHref, setCenteredHref] = useState<string>();
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const compactScreen = window.matchMedia("(max-width: 1024px)");
+    const sections = navigation.flatMap(({ href }) => {
+      const section = document.getElementById(href.slice(2));
+      return section ? [{ href, section }] : [];
+    });
+    let frame = 0;
+
+    function update() {
+      frame = 0;
+      const viewportCenter = window.innerHeight / 2;
+      const centered = sections.find(({ section }) => {
+        const { top, bottom } = section.getBoundingClientRect();
+        return top <= viewportCenter && viewportCenter < bottom;
+      });
+      setCenteredHref(centered?.href);
+    }
+
+    function scheduleUpdate() {
+      if (!compactScreen.matches && !frame) frame = requestAnimationFrame(update);
+    }
+
+    const observer = new ResizeObserver(scheduleUpdate);
+    for (const { section } of sections) observer.observe(section);
+    observer.observe(document.body);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    scheduleUpdate();
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, [pathname]);
+
+  if (pathname.startsWith("/projects/")) return "/#projects";
+  return pathname === "/" ? centeredHref : undefined;
+}
+
+function Navigation({ activeHref }: { activeHref?: string }) {
   return (
     <ul className="nav-list">
       {navigation.map(({ label, href }) => (
@@ -24,62 +69,45 @@ function Navigation({ pathname }: { pathname: string }) {
           <Link
             className="nav-link"
             href={href}
-            aria-current={href === "/#projects" && pathname.startsWith("/projects/") ? "location" : undefined}
+            aria-current={href === activeHref ? "location" : undefined}
           >
-            {label}
+            <span>{label}</span>
           </Link>
         </li>
       ))}
-      <li className="nav-cv"><DownloadCv primary /></li>
+      <li><DownloadCv primary /></li>
     </ul>
   );
 }
 
-function Header({ name, pathname = "" }: { name: string; pathname?: string }) {
+function Header({
+  name,
+  pathname = "",
+  activeHref,
+}: {
+  name: string;
+  pathname?: string;
+  activeHref?: string;
+}) {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <Link className="wordmark" href="/" aria-current={pathname === "/" ? "page" : undefined}>
+        <Link className="wordmark" href="/" aria-label={name} aria-current={pathname === "/" ? "page" : undefined}>
           <span className="monogram" aria-hidden="true">SL</span>
-          <span>{name}</span>
+          <span className="wordmark-name">{name}</span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <Navigation pathname={pathname} />
+          <Navigation activeHref={activeHref} />
         </nav>
-        <details
-          className="mobile-nav"
-          key={pathname}
-          onKeyDown={(event) => {
-            if (event.key === "Escape" && event.currentTarget.open) {
-              event.currentTarget.open = false;
-              event.currentTarget.querySelector("summary")?.focus();
-            }
-          }}
-        >
-          <summary>
-            Menu
-            <Icon name="menu" className="menu-open-icon" />
-            <Icon name="close" className="menu-close-icon" />
-          </summary>
-          <nav aria-label="Main navigation" onClick={(event) => {
-            if (event.target instanceof Element && event.target.closest("a")) {
-              const disclosure = event.currentTarget.closest("details");
-              if (disclosure) {
-                disclosure.open = false;
-                disclosure.querySelector("summary")?.focus();
-              }
-            }
-          }}>
-            <Navigation pathname={pathname} />
-          </nav>
-        </details>
       </div>
     </header>
   );
 }
 
 function ActiveHeader({ name }: { name: string }) {
-  return <Header name={name} pathname={usePathname()} />;
+  const pathname = usePathname();
+  const activeHref = useCenteredSection(pathname);
+  return <Header name={name} pathname={pathname} activeHref={activeHref} />;
 }
 
 export function SiteHeader({ name }: { name: string }) {
